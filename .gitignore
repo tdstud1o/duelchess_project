@@ -3,3 +3,6 @@ dist/
 tmp/
 .workbuddy/
 *.local
+
+# vite 临时文件
+duelchess/vite.config.ts.timestamp-*

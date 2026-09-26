@@ -1,0 +1,12 @@
+[submodule "duelchess"]
+	path = duelchess
+	url = git@github.com:t1mmoc/duelchess.git
+[submodule "duelchess_server"]
+	path = duelchess_server
+	url = git@github.com:t1mmoc/duelchess_server.git
+[submodule "duelchess_mapbuilder"]
+	path = duelchess_mapbuilder
+	url = git@github.com:t1mmoc/duelchess_mapbuilder.git
+[submodule "duelchess_rules"]
+	path = duelchess_rules
+	url = git@github.com:t1mmoc/duelchess_rules.git

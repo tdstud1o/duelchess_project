@@ -25,5 +25,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git remote add gitcode "https://${GITCODE_USER}:${GITCODE_PAT}@gitcode.com/timmoc/duelchess_project.git"
           # GitHub 为主仓：强制保持 GitCode 镜像与 main 一致
-          git push --force-with-lease gitcode HEAD:refs/heads/main
-          git push --tags gitcode
+          # 用 --force（非 --force-with-lease）：本仓库是纯镜像，只由本 Action 写入，
+          # 无需 lease 校验；lease 会因无远程跟踪引用而误报 stale info
+          git push --force gitcode HEAD:refs/heads/main
+          git push --force --tags gitcode

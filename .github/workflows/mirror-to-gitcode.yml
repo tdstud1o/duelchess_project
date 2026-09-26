@@ -1,0 +1,29 @@
+name: Mirror to GitCode
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Push to GitCode
+        env:
+          GITCODE_USER: ${{ secrets.GITCODE_USER }}
+          GITCODE_PAT: ${{ secrets.GITCODE_PAT }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git remote add gitcode "https://${GITCODE_USER}:${GITCODE_PAT}@gitcode.com/timmoc/duelchess_project.git"
+          # GitHub 为主仓：强制保持 GitCode 镜像与 main 一致
+          git push --force-with-lease gitcode HEAD:refs/heads/main
+          git push --tags gitcode

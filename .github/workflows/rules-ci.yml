@@ -1,0 +1,15 @@
+name: rules-ci
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run: { working-directory: duelchess_rules }
+    steps:
+      - uses: actions/checkout@v4
+        with: { submodules: recursive }
+      - uses: actions/setup-node@v4
+        with: { node-version: "20", cache: npm, cache-dependency-path: duelchess_rules/package-lock.json }
+      - run: npm ci
+      - run: npm test
+      - run: npm run typecheck

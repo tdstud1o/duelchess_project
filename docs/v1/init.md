@@ -1,4 +1,4 @@
-# 决斗王！(DuelChess) 项目文档 v1
+# 烽决(DuelChess) 项目文档 v1
 
 > 本文件为 `duelchess_project` 聚合仓的项目级文档。规则细节以 `duelchess/docs/PRD.md` 为准。
 

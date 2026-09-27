@@ -1,4 +1,4 @@
-# 决斗王！(DuelChess) 项目进度复盘 & 下一步改进措施
+# 烽决(DuelChess) 项目进度复盘 & 下一步改进措施
 
 > 复盘日期：2026-09-27 · **复核于 19:50**（当日下午五个仓落了一大批提交，前 11:58 版结论已失效，本版以实查 git/CI/源码重写）
 > 数据来源：各子仓 `git log`/`git status`、`.github/workflows`、`wrangler.toml`、`net.ts`、`vitest` 实跑
@@ -39,7 +39,7 @@
 2. **【P1 验收】线上端到端冒烟**：对 `https://duelchess-server.tmoc.qzz.io` 跑 建房→布局→对局→认输再战→棋谱落盘；顺带确认 rules 在 CI（ubuntu）无沙箱 EPERM 那条 "1 error" 噪声（真环境应干净）。
 3. **【P2】前端回放/战绩浏览页**：服务端接口已就绪，补 `results`/`replay` 两个 screen 即可闭环 M4 前端侧。
 4. **【P2】变体地图上传联调**：先确认 `ADMIN_TOKEN` 已 `wrangler secret put`，再用 mapbuilder 或 curl 上传一张变体图验证 `GET /api/maps` 能列出。
-5. **【收口】聚合仓 dirty**：`README.md` / `docs/v1/init.md`（P0 编辑，M3 置 ✅）+ 四个子模块指针已 bump 但未提交。需一次 commit 收口（你此前明确不处理 project 仓，故仅标记，未动）。
+5. **【收口】聚合仓 dirty（21:25 复核）**：四个子仓库工作树均干净、与 `origin/main` 同步（ahead/behind 0/0），即已提交并推送；但**聚合仓（project）仅 `duelchess`(`5d0956cb`) + `duelchess_server`(`90db2d22`) 两个子模块指针已前进却未记录**（`git status` 显示 `M duelchess`、`M duelchess_server`）。`README.md`/`docs/v1/init.md` 与 `duelchess_mapbuilder`/`duelchess_rules` 指针已先行提交。需一次 `git add duelchess duelchess_server && commit && push` 收口（你此前明确不处理 project 仓，故仅标记，未动）。
 6. **【文档】本复盘旧版已失效**：前版称「M3 仅代码完成未部署」「rules 未实现铁道/传送门」——现均证伪，本版已更正。
 
 ## 五、下一步建议

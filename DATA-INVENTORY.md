@@ -1,4 +1,4 @@
-# 决斗王！(duelchess) 项目数据盘点报告
+# 烽决(duelchess) 项目数据盘点报告
 
 > 生成时间：2026-09-27 19:53（GMT+8）
 > 范围：工作区 `C:/Users/Timmoc/WorkBuddy/duelchess` 全量 + WorkBuddy 数据

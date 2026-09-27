@@ -1,4 +1,4 @@
-# 决斗王！(DuelChess) 项目总览
+# 烽决(DuelChess) 项目总览
 
 双人在线对抗棋（Stratego/军棋类）全栈项目。本仓（`duelchess_project`）为**聚合仓**，通过 git submodule 管理全部子仓。
 

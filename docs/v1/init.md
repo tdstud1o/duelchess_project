@@ -11,7 +11,7 @@
 | 子仓 | 角色 | 部署 | 技术栈 | 状态 |
 |---|---|---|---|---|
 | `duelchess` | 前端 SPA | CF Pages | Preact + TS + Vite | M2 同屏双人 ✅ |
-| `duelchess_server` | 后端 API / 实时对战 | Worker + DO + D1 + R2 + KV | Workers TS | M3 完成 ✅ |
+| `duelchess_server` | 后端 API / 实时对战 | Worker + DO + D1 + R2 + KV | Workers TS | M3 部署就绪 🟡 |
 | `duelchess_rules` | 规则引擎（前后端共享） | npm 包 | TS + vitest | M1 完成 ✅ |
 | `duelchess_mapbuilder` | 地图编辑器 + 地图数据 | 静态页 | 单文件 HTML | 编辑器进行中 |
 
@@ -46,8 +46,8 @@ cd duelchess && npm install && npm run dev
 |---|---|---|
 | M1 | rules 包：布局校验 / 走子 / 吃子 / 胜负 + 单测 | ✅ |
 | M2 | 前端同屏双人 + 布局编辑器，Pages 上线 | ✅ |
-| M3 | 在线房间：对弈码匹配、DO 实时对战 | ✅ |
-| M4 | 战绩 / 棋谱回放、变体地图（铁道 / 传送门） | ⏳ |
+| M3 | 在线房间：对弈码匹配、DO 实时对战 | 🟡 |
+| M4 | 战绩 / 棋谱回放、变体地图（铁道 / 传送门） | 🟡 |
 | M5 | 注册体系、积分段位、观战 | ⏳ |
 
 ## 6. 规则要点（已定稿）

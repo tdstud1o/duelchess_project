@@ -61,7 +61,7 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: "20", cache: npm, cache-dependency-path: duelchess_rules/package-lock.json }
       - run: npm ci
-      - run: npm test          # vitest run，当前 32 例应全绿
+      - run: npm test          # vitest run，当前 4 文件 74 it 应全绿
       - run: npm run typecheck
 ```
 
@@ -86,5 +86,5 @@ jobs:
 - [ ] 服务端 Worker 部署成功，公网 `GET /api/maps`、`POST /api/rooms` 可达。
 - [ ] 两个独立浏览器会话完整跑完一局：建房→布局→对局→认输/再战，战绩与棋谱落盘可查。
 - [ ] 断线后用同一 token 可恢复席位。
-- [ ] `duelchess_rules` CI 门禁合入主仓，后续 PR 自动跑 vitest（32 例）+ typecheck。
+- [ ] `duelchess_rules` CI 门禁合入主仓，后续 PR 自动跑 vitest（74 it / 4 文件）+ typecheck。
 - [ ] 复盘报告 `docs/PROGRESS-REVIEW-2026-09-27.md` 的 P1 项勾除，并记录实际 Worker 子域名与采取的默认地址方案。

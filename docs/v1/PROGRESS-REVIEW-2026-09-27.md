@@ -8,7 +8,7 @@
 
 | 阶段 | 状态 | 依据（实查） |
 |---|---|---|
-| M1 规则引擎 | ✅ 完成 | `duelchess_rules` **64 例 vitest 全绿**（3 文件）；草丛战斗按连通片判定 `649fd8d`、部署禁下水 `db2ccf3`、假基地回归 `855a806` 均已提交 |
+| M1 规则引擎 | ✅ 完成 | `duelchess_rules` **4 文件 74 it vitest 全绿**；草丛战斗按连通片判定 `649fd8d`、部署禁下水 `db2ccf3`、假基地回归 `855a806` 均已提交 |
 | M2 前端同屏双人 | ✅ 完成 | 前端工作树 clean；`23ff300` 起多轮迭代（草丛 PRD 定稿、静音/回放工具条、部署禁下水） |
 | M3 在线房间 | 🟡 部署基本就绪，待**前端 Pages 重部署 + 线上冒烟** | 见第二节 |
 | M4 变体地图/回放 | 🟡 后端+规则就绪，**前端缺回放/战绩页** | 见第三节 |
@@ -21,8 +21,8 @@
 | T1 创建云端资源 + 回填 `wrangler.toml` | ✅ | `wrangler.toml` 已是**真实 ID**：SESSIONS `a74643b5…`、MAP_CACHE `ff60a29b…`、D1 `71bbe89c…`、R2 `duelchess-replays` |
 | T2 设置密钥 | ✅ 部署侧 / ⚠️ ADMIN_TOKEN 待确认 | `deploy.yml` 用 `CLOUDFLARE_API_TOKEN`/`ACCOUNT_ID`；`ADMIN_TOKEN` 是否 set 未验证（仅影响 P2 地图上传，不影响对局） |
 | T3 D1 迁移 + 部署 | ✅ | `deploy.yml` 自动部署（push main 触发）；`825705a`「内置四张地图 + GitHub Actions 自动部署」；D1 表由 `migrations/0001_init.sql` 建 |
-| T4 前端 Pages 重部署 + 生产地址 | 🟡 | `net.ts` 默认已改为 `https://duelchess-server.tmoc.qzz.io`（可 `VITE_SERVER_BASE` 或 Online 页覆盖）；**但前端无 CI，须手动 Pages 重部署** |
-| T5 rules vitest CI 门禁 | ✅ | `rules-ci.yml` 已建（14:01），64 例测试绿 |
+| T4 前端 Pages 重部署 + 生产地址 | 🟡 | `net.ts` 默认已改为 `https://duelchess-server.tmoc.qzz.io`（可 `VITE_SERVER_BASE` 或 Online 页覆盖）；**前端已有 deploy.yml 自动部署 CI（push main 触发）** |
+| T5 rules vitest CI 门禁 | ✅ | `rules-ci.yml` 已建（14:01），4 文件 74 it 测试绿 |
 
 **结论：P1 的 T1 / T2(部署侧) / T3 / T5 已完成；仅 T4 的「前端 Pages 手动重部署」与「端到端冒烟」两项待办。** 服务端应已上线于 `https://duelchess-server.tmoc.qzz.io`（按自动部署 CI + 真实绑定 ID 判断），待线上冒烟最终确认。
 
@@ -35,7 +35,7 @@
 
 ## 四、剩余缺口（按优先级）
 
-1. **【P1 最关键】前端 Pages 重新部署**：前端无自动部署 CI，必须手动把最新 `duelchess` 部署到 Pages，否则生产默认地址指向的 Worker 虽在，但前端页面仍是旧版、连不上 M3。确认方式：Cloudflare Pages 控制台或 `wrangler pages deploy dist`。
+1. **【P1 最关键】前端 Pages 重新部署**：前端已有 deploy.yml 自动部署 CI（push main 触发），需确认最近一次 push 已成功部署到 Pages，否则生产默认地址指向的 Worker 虽在，但前端页面仍是旧版、连不上 M3。确认方式：Cloudflare Pages 控制台或 `wrangler pages deploy dist`。
 2. **【P1 验收】线上端到端冒烟**：对 `https://duelchess-server.tmoc.qzz.io` 跑 建房→布局→对局→认输再战→棋谱落盘；顺带确认 rules 在 CI（ubuntu）无沙箱 EPERM 那条 "1 error" 噪声（真环境应干净）。
 3. **【P2】前端回放/战绩浏览页**：服务端接口已就绪，补 `results`/`replay` 两个 screen 即可闭环 M4 前端侧。
 4. **【P2】变体地图上传联调**：先确认 `ADMIN_TOKEN` 已 `wrangler secret put`，再用 mapbuilder 或 curl 上传一张变体图验证 `GET /api/maps` 能列出。

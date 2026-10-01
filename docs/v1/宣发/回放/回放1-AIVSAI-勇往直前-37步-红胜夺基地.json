@@ -1,0 +1,602 @@
+{
+  "rulesVersion": "1.0.0-alpha.1",
+  "mapName": "勇往直前",
+  "players": {
+    "red": "红方",
+    "blue": "蓝方"
+  },
+  "startedAt": "2026-09-28T08:33:12.495Z",
+  "endedAt": "2026-09-28T08:36:52.133Z",
+  "winner": "red",
+  "winReason": "base",
+  "setup": [
+    {
+      "id": "b1",
+      "side": "blue",
+      "level": 1,
+      "spawn": "0,10"
+    },
+    {
+      "id": "b2",
+      "side": "blue",
+      "level": 1,
+      "spawn": "0,11"
+    },
+    {
+      "id": "b3",
+      "side": "blue",
+      "level": 2,
+      "spawn": "0,12"
+    },
+    {
+      "id": "b4",
+      "side": "blue",
+      "level": 1,
+      "spawn": "1,10"
+    },
+    {
+      "id": "b5",
+      "side": "blue",
+      "level": 0,
+      "spawn": "1,11"
+    },
+    {
+      "id": "b6",
+      "side": "blue",
+      "level": 0,
+      "spawn": "1,12"
+    },
+    {
+      "id": "b7",
+      "side": "blue",
+      "level": 1,
+      "spawn": "2,10"
+    },
+    {
+      "id": "b8",
+      "side": "blue",
+      "level": 4,
+      "spawn": "2,11"
+    },
+    {
+      "id": "b9",
+      "side": "blue",
+      "level": 11,
+      "spawn": "2,12"
+    },
+    {
+      "id": "b10",
+      "side": "blue",
+      "level": 2,
+      "spawn": "3,10"
+    },
+    {
+      "id": "b11",
+      "side": "blue",
+      "level": 12,
+      "spawn": "3,11"
+    },
+    {
+      "id": "b12",
+      "side": "blue",
+      "level": 10,
+      "spawn": "3,12"
+    },
+    {
+      "id": "b13",
+      "side": "blue",
+      "level": 5,
+      "spawn": "4,10"
+    },
+    {
+      "id": "b14",
+      "side": "blue",
+      "level": 3,
+      "spawn": "4,11"
+    },
+    {
+      "id": "b15",
+      "side": "blue",
+      "level": 11,
+      "spawn": "4,12"
+    },
+    {
+      "id": "b16",
+      "side": "blue",
+      "level": 2,
+      "spawn": "5,10"
+    },
+    {
+      "id": "b17",
+      "side": "blue",
+      "level": 2,
+      "spawn": "5,11"
+    },
+    {
+      "id": "b18",
+      "side": "blue",
+      "level": 3,
+      "spawn": "5,12"
+    },
+    {
+      "id": "r1",
+      "side": "red",
+      "level": 2,
+      "spawn": "0,0"
+    },
+    {
+      "id": "r2",
+      "side": "red",
+      "level": 1,
+      "spawn": "0,1"
+    },
+    {
+      "id": "r3",
+      "side": "red",
+      "level": 1,
+      "spawn": "0,2"
+    },
+    {
+      "id": "r4",
+      "side": "red",
+      "level": 4,
+      "spawn": "1,0"
+    },
+    {
+      "id": "r5",
+      "side": "red",
+      "level": 1,
+      "spawn": "1,1"
+    },
+    {
+      "id": "r6",
+      "side": "red",
+      "level": 2,
+      "spawn": "1,2"
+    },
+    {
+      "id": "r7",
+      "side": "red",
+      "level": 12,
+      "spawn": "2,0"
+    },
+    {
+      "id": "r8",
+      "side": "red",
+      "level": 3,
+      "spawn": "2,1"
+    },
+    {
+      "id": "r9",
+      "side": "red",
+      "level": 5,
+      "spawn": "2,2"
+    },
+    {
+      "id": "r10",
+      "side": "red",
+      "level": 10,
+      "spawn": "3,0"
+    },
+    {
+      "id": "r11",
+      "side": "red",
+      "level": 11,
+      "spawn": "3,1"
+    },
+    {
+      "id": "r12",
+      "side": "red",
+      "level": 0,
+      "spawn": "3,2"
+    },
+    {
+      "id": "r13",
+      "side": "red",
+      "level": 11,
+      "spawn": "4,0"
+    },
+    {
+      "id": "r14",
+      "side": "red",
+      "level": 0,
+      "spawn": "4,1"
+    },
+    {
+      "id": "r15",
+      "side": "red",
+      "level": 1,
+      "spawn": "4,2"
+    },
+    {
+      "id": "r16",
+      "side": "red",
+      "level": 2,
+      "spawn": "5,0"
+    },
+    {
+      "id": "r17",
+      "side": "red",
+      "level": 3,
+      "spawn": "5,1"
+    },
+    {
+      "id": "r18",
+      "side": "red",
+      "level": 2,
+      "spawn": "5,2"
+    }
+  ],
+  "moves": [
+    {
+      "id": "r9",
+      "from": "2,2",
+      "to": "3,9",
+      "agent": {
+        "reason": "5级经铁路滑行至[3,9]，利用传送门直插蓝方右翼，同时保留后续通过组2传送门突袭[2,9]及敌方阵地的战术通道",
+        "fallback": false,
+        "model": "ZhipuAI/GLM-5.2"
+      }
+    },
+    {
+      "id": "b10",
+      "from": "3,10",
+      "to": "2,9",
+      "agent": {
+        "reason": "4级经铁路滑行至[2,9]后传送至[2,3]，深入红方腹地侦察并威胁敌方基地区域，同时避开中央河水阻隔",
+        "fallback": false,
+        "model": "ZhipuAI/GLM-5.2"
+      }
+    },
+    {
+      "id": "r9",
+      "from": "3,9",
+      "to": "2,9",
+      "agent": {
+        "reason": "5级攻击b10——若b10是蓝方从原[3,10]走出的活动子（非基地/陷阱），5级可吃掉或同归；若b10恰好是5级则暴露蓝方基地，信息价值极大",
+        "fallback": false,
+        "model": "ZhipuAI/GLM-5.2"
+      }
+    },
+    {
+      "id": "b4",
+      "from": "1,10",
+      "to": "2,9",
+      "agent": {
+        "reason": "1级攻击刚吃掉我方4级的红子r9，若r9是5级则已揭示基地位置值得用小子试探；若非5级则可夺回要地，为5级扫清铁路通道",
+        "fallback": false,
+        "model": "ZhipuAI/GLM-5.2"
+      }
+    },
+    {
+      "id": "r9",
+      "from": "2,9",
+      "to": "1,10",
+      "agent": {
+        "reason": "蓝方从[1,10]出动吃掉我方5级暴露了真基地，[1,10]处极可能是敌方5级——用2级试探攻击，若对方同级则同归（无损失），若对方是5级则我方阵亡但已确认其身份；若对方更弱则反吃，任何结果都获得关键情报",
+        "fallback": false,
+        "model": "ZhipuAI/GLM-5.2"
+      }
+    },
+    {
+      "id": "b2",
+      "from": "0,11",
+      "to": "1,10",
+      "agent": {
+        "reason": "1级试探r9身份——若r9非5级则同亡或占位夺回阵地，即使送子也只为5级后续强攻扫清障碍",
+        "fallback": false,
+        "model": "ZhipuAI/GLM-5.2"
+      }
+    },
+    {
+      "id": "r9",
+      "from": "1,10",
+      "to": "0,10",
+      "agent": {
+        "reason": "5级反吃b1侦察敌情——b1可能是蓝方5级（开局布于[0,10]），同归则双方5级阵亡互相暴露基地；若b1更弱则白吃且保持进攻压力",
+        "fallback": false,
+        "model": "ZhipuAI/GLM-5.2"
+      }
+    },
+    {
+      "id": "b5",
+      "from": "1,11",
+      "to": "0,10",
+      "agent": {
+        "reason": "炸弹攻击r9——r9连吃我方两子身份未明，用炸弹确保同归于尽，既清除威胁又防止r9是5级暴露我方基地",
+        "fallback": false,
+        "model": "ZhipuAI/GLM-5.2"
+      }
+    },
+    {
+      "id": "r15",
+      "from": "4,2",
+      "to": "3,3",
+      "agent": {
+        "reason": "1级踏上铁路格[3,3]，下回合可沿铁路快速推进至蓝方阵地附近[3,9]，为后续侦察b12/b11身份创造条件",
+        "fallback": false,
+        "model": "ZhipuAI/GLM-5.2"
+      }
+    },
+    {
+      "id": "b13",
+      "from": "4,10",
+      "to": "3,3",
+      "agent": {
+        "reason": "5级沿铁路直冲[3,3]攻击r15，吃掉后可通过传送门[2,3]突袭已揭示的红方真基地[3,0]，直达胜利",
+        "fallback": false,
+        "model": "ZhipuAI/GLM-5.2"
+      }
+    },
+    {
+      "id": "r12",
+      "from": "3,2",
+      "to": "3,3",
+      "agent": {
+        "reason": "炸弹攻击b13同归于尽——b13经铁路长驱直入威胁我方腹地，必须立即清除；炸弹换掉敌子稳赚不亏",
+        "fallback": false,
+        "model": "ZhipuAI/GLM-5.2"
+      }
+    },
+    {
+      "id": "b14",
+      "from": "4,11",
+      "to": "3,10",
+      "agent": {
+        "reason": "红方5级已阵亡基地暴露，但r12同亡后铁路被清理；3级推进至[3,10]控制铁路中线，准备沿铁路经[2,3]传送门突袭已揭示的红方真基地[3,0]",
+        "fallback": false,
+        "model": "ZhipuAI/GLM-5.2"
+      }
+    },
+    {
+      "id": "r6",
+      "from": "1,2",
+      "to": "2,9",
+      "agent": {
+        "reason": "2级经组2传送门直达蓝方阵地前沿[2,9]，下两步可推进至[3,10]攻击b14或绕路直扑已揭示蓝方真基地[3,12]",
+        "fallback": false,
+        "model": "ZhipuAI/GLM-5.2"
+      }
+    },
+    {
+      "id": "b14",
+      "from": "3,10",
+      "to": "3,3",
+      "agent": {
+        "reason": "3级沿铁路滑行至[3,3]，随后可经传送门[2,3]突袭已揭示的红方真基地[3,0]，直取胜利",
+        "fallback": false,
+        "model": "ZhipuAI/GLM-5.2"
+      }
+    },
+    {
+      "id": "r8",
+      "from": "2,1",
+      "to": "3,2",
+      "agent": {
+        "reason": "3级登上铁路[3,2]，下回合可经铁路滑行至[3,9]逼近已揭示蓝方基地[3,12]，同时远离铁路上的b14威胁",
+        "fallback": false,
+        "model": "ZhipuAI/GLM-5.2"
+      }
+    },
+    {
+      "id": "b14",
+      "from": "3,3",
+      "to": "3,2",
+      "agent": {
+        "reason": "3级攻击r8清除通往基地的屏障，但需注意[3,1]陷阱区可能是真陷阱导致同亡；若r8非5级则安全推进，为后续直取红方真基地[3,0]扫清道路",
+        "fallback": false,
+        "model": "ZhipuAI/GLM-5.2"
+      }
+    },
+    {
+      "id": "r6",
+      "from": "2,9",
+      "to": "2,10",
+      "agent": {
+        "reason": "b14已与我方3级同归于尽，铁路畅通无阻——2级攻击b7侦察敌情，下回合可沿铁路[3,9]直扑已揭示蓝方基地[3,12]",
+        "fallback": false,
+        "model": "ZhipuAI/GLM-5.2"
+      }
+    },
+    {
+      "id": "b8",
+      "from": "2,11",
+      "to": "2,10",
+      "agent": {
+        "reason": "4级攻击r6夺回阵地，r6刚吃我方1级且非5级（5级已阵亡），4级应可压制；同时控制[2,10]为后续经铁路[3,3]-[2,3]传送突袭已揭示的红方真基地[3,0]打开通道",
+        "fallback": false,
+        "model": "ZhipuAI/GLM-5.2"
+      }
+    },
+    {
+      "id": "r14",
+      "from": "4,1",
+      "to": "3,2",
+      "agent": {
+        "reason": "炸弹登上铁路[3,2]，下回合可沿铁路滑行至[3,9]逼近蓝方阵地，以炸弹之力清除拦路敌子为后续进攻基地[3,12]开路",
+        "fallback": false,
+        "model": "ZhipuAI/GLM-5.2"
+      }
+    },
+    {
+      "id": "b8",
+      "from": "2,10",
+      "to": "3,3",
+      "agent": {
+        "reason": "4级沿铁路滑行至[3,3]，随后经传送门[2,3]突袭已揭示的红方真基地[3,0]，直达胜利",
+        "fallback": false,
+        "model": "ZhipuAI/GLM-5.2"
+      }
+    },
+    {
+      "id": "r14",
+      "from": "3,2",
+      "to": "3,3",
+      "agent": {
+        "reason": "炸弹同归于尽攻击b8，清除蓝方铁路拦路子——b8占据铁路关键节点[3,3]阻挡我方通往蓝方基地[3,12]的进攻路线，必须立即拔除",
+        "fallback": false,
+        "model": "ZhipuAI/GLM-5.2"
+      }
+    },
+    {
+      "id": "b16",
+      "from": "5,10",
+      "to": "3,10",
+      "agent": {
+        "reason": "2级占领铁路起点[3,10]，下回合沿铁路滑行至[3,3]后经传送门[2,3]突袭已揭示的红方真基地[3,0]",
+        "fallback": false,
+        "model": "ZhipuAI/GLM-5.2"
+      }
+    },
+    {
+      "id": "r18",
+      "from": "5,2",
+      "to": "3,2",
+      "agent": {
+        "reason": "2级登上铁路起点[3,2]，下回合可沿铁路滑行至[3,9]逼近蓝方阵地，向已揭示真基地[3,12]发起冲锋",
+        "fallback": false,
+        "model": "ZhipuAI/GLM-5.2"
+      }
+    },
+    {
+      "id": "b16",
+      "from": "3,10",
+      "to": "3,3",
+      "agent": {
+        "reason": "2级沿铁路滑行至[3,3]，下回合经传送门[2,3]突袭已揭示的红方真基地[3,0]——只要红方来不及堵截即获胜",
+        "fallback": false,
+        "model": "ZhipuAI/GLM-5.2"
+      }
+    },
+    {
+      "id": "r18",
+      "from": "3,2",
+      "to": "2,3",
+      "agent": {
+        "reason": "2级经组2传送门跳至[2,3]，绕开铁路上b16的封锁，下回合可沿铁路滑行至[3,9]直扑已揭示蓝方基地[3,12]",
+        "fallback": false,
+        "model": "ZhipuAI/GLM-5.2"
+      }
+    },
+    {
+      "id": "b16",
+      "from": "3,3",
+      "to": "2,3",
+      "agent": {
+        "reason": "2级攻击r18夺回[2,3]传送门，r18刚从[3,2]移来自愿撞上传送门必非大子（5级已亡），2级应可压制；下回合经传送至[2,9]再沿铁路直取已揭示的红方真基地[3,0]",
+        "fallback": false,
+        "model": "ZhipuAI/GLM-5.2"
+      }
+    },
+    {
+      "id": "r17",
+      "from": "5,1",
+      "to": "4,1",
+      "agent": {
+        "reason": "b16与b8连续同归于尽，蓝方活动子所剩无几，铁路线已畅通——3级经[4,1]向铁路[3,2]推进，下回合可沿铁路直扑已揭示蓝方基地[3,12]",
+        "fallback": false,
+        "model": "ZhipuAI/GLM-5.2"
+      }
+    },
+    {
+      "id": "b17",
+      "from": "5,11",
+      "to": "5,10",
+      "agent": {
+        "reason": "2级推进至[5,10]，下回合可沿铁路滑行至[3,3]再经传送门[2,3]突袭已揭示的红方真基地[3,0]",
+        "fallback": false,
+        "model": "ZhipuAI/GLM-5.2"
+      }
+    },
+    {
+      "id": "r17",
+      "from": "4,1",
+      "to": "3,2",
+      "agent": {
+        "reason": "3级登上铁路起点[3,2]，下回合沿铁路滑行至[3,9]后可正交一步攻击已揭示蓝方真基地[3,12]，胜利在望",
+        "fallback": false,
+        "model": "ZhipuAI/GLM-5.2"
+      }
+    },
+    {
+      "id": "b17",
+      "from": "5,10",
+      "to": "3,10",
+      "agent": {
+        "reason": "2级跃至[3,10]铁路起点，下回合沿铁路滑行至[3,3]再经传送门[2,3]突袭已揭示的红方真基地[3,0]",
+        "fallback": false,
+        "model": "ZhipuAI/GLM-5.2"
+      }
+    },
+    {
+      "id": "r17",
+      "from": "3,2",
+      "to": "3,9",
+      "agent": {
+        "reason": "3级沿铁路全速滑行至[3,9]，下回合正交一步攻击已揭示蓝方真基地[3,12]即可获胜",
+        "fallback": false,
+        "model": "ZhipuAI/GLM-5.2"
+      }
+    },
+    {
+      "id": "b17",
+      "from": "3,10",
+      "to": "2,9",
+      "agent": {
+        "reason": "2级经铁路滑至[2,9]传送门，下回合传送至[2,3]后走至[3,2]或[2,1]，再一步攻入已揭示的红方真基地[3,0]",
+        "fallback": false,
+        "model": "ZhipuAI/GLM-5.2"
+      }
+    },
+    {
+      "id": "r17",
+      "from": "3,9",
+      "to": "3,10",
+      "agent": {
+        "reason": "3级推进至[3,10]卡住通往蓝方真基地[3,12]的最后通道，下回合攻击b11（陷阱区）——若b11是空陷阱则白吃通行，若真陷阱则同归后b12基地暴露可直接获胜",
+        "fallback": false,
+        "model": "ZhipuAI/GLM-5.2"
+      }
+    },
+    {
+      "id": "b17",
+      "from": "2,9",
+      "to": "2,3",
+      "agent": {
+        "reason": "2级从[2,9]传送至[2,3]，已到达红方阵地深处——下回合正交1格走至[3,2]再进[3,0]即可吃掉红方真基地获胜",
+        "fallback": false,
+        "model": "ZhipuAI/GLM-5.2"
+      }
+    },
+    {
+      "id": "r17",
+      "from": "3,10",
+      "to": "3,11",
+      "agent": {
+        "reason": "3级攻击b11——若b11是空陷阱则白吃通行，下回合直吃蓝方真基地[3,12]获胜；若b11是真陷阱则同归于尽，但仍暴露b12基地供后续进攻",
+        "fallback": false,
+        "model": "ZhipuAI/GLM-5.2"
+      }
+    },
+    {
+      "id": "b17",
+      "from": "2,3",
+      "to": "3,2",
+      "agent": {
+        "reason": "2级推进至[3,2]，下一步正交1格攻入已揭示的红方真基地[3,0]即可获胜；[3,2]无敌子阻挡，路线畅通",
+        "fallback": false,
+        "model": "ZhipuAI/GLM-5.2"
+      }
+    },
+    {
+      "id": "r17",
+      "from": "3,11",
+      "to": "3,12",
+      "agent": {
+        "reason": "b11是空陷阱被3级白吃已通行，现在正交一步攻击b12——b12是已揭示蓝方真基地，吃掉立即获胜！",
+        "fallback": false,
+        "model": "ZhipuAI/GLM-5.2"
+      }
+    }
+  ]
+}

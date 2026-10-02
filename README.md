@@ -4,14 +4,21 @@
 
 > 规则权威来源：`duelchess/docs/PRD.md`（v0.1 定稿）
 
+## 本仓定位与可见性（重要）
+
+- 本仓是**公开仓**：用于项目总览、文档查阅和**问题反馈**——发现 bug、玩法建议、联机问题，欢迎直接 [提 issue](https://github.com/tdstud1o/duelchess_project/issues/new)。
+- 四个子仓（前端 / 服务端 / 规则引擎 / 地图编辑器）**保持私有**：公开访客无法拉取代码，`git clone --recurse-submodules` 会失败，这是预期行为。
+- 游戏入口：**https://duel.tmoc.qzz.io** （免费畅玩，无需注册）
+- 提 issue 时请附：使用的地图与对弈模式、复现步骤、截图或回放 JSON（结算弹窗可下载）。
+
 ## 子仓结构
 
 | 子仓 | 角色 | 部署 | 技术栈 | 进度 |
 |---|---|---|---|---|
-| [duelchess](https://github.com/t1mmoc/duelchess) | 前端 SPA | CF Pages | Preact + TS + Vite | M2 同屏双人 |
-| [duelchess_server](https://github.com/t1mmoc/duelchess_server) | 后端 API / 实时对战 | Worker + DO + D1 + R2 + KV | Workers TS | M3 完成 |
-| [duelchess_rules](https://github.com/t1mmoc/duelchess_rules) | 规则引擎（前后端共享） | npm 包 | TS + vitest | M1 完成 |
-| [duelchess_mapbuilder](https://github.com/t1mmoc/duelchess_mapbuilder) | 地图编辑器 + 地图数据 | 静态页 | 单文件 HTML | 编辑器进行中 |
+| [duelchess](https://github.com/tdstud1o/duelchess) | 前端 SPA | CF Pages | Preact + TS + Vite | M2 同屏双人 |
+| [duelchess_server](https://github.com/tdstud1o/duelchess_server) | 后端 API / 实时对战 | Worker + DO + D1 + R2 + KV | Workers TS | M3 完成 |
+| [duelchess_rules](https://github.com/tdstud1o/duelchess_rules) | 规则引擎（前后端共享） | npm 包 | TS + vitest | M1 完成 |
+| [duelchess_mapbuilder](https://github.com/tdstud1o/duelchess_mapbuilder) | 地图编辑器 + 地图数据 | 静态页 | 单文件 HTML | 编辑器进行中 |
 
 ## 架构
 
@@ -25,12 +32,14 @@ CF Worker（duelchess_server）
    └─ R2 ── 棋谱全文 / 地图缩略图 / 静态资源
 ```
 
-## 克隆全部子仓
+## 克隆全部子仓（仅协作者）
 
 ```bash
-git clone --recurse-submodules git@github.com:t1mmoc/duelchess_project.git
+git clone --recurse-submodules git@github.com:tdstud1o/duelchess_project.git
 cd duelchess_project
 ```
+
+> 以下操作需要拥有子仓访问权限的 SSH key（协作者）；公开访客克隆会停在子模块一步，属预期。
 
 ## 里程碑
 

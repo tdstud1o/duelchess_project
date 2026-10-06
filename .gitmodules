@@ -1,12 +1,12 @@
 [submodule "duelchess"]
 	path = duelchess
-	url = git@github.com:tdstud1o/duelchess.git
+	url = ../duelchess.git
 [submodule "duelchess_server"]
 	path = duelchess_server
-	url = git@github.com:tdstud1o/duelchess_server.git
+	url = ../duelchess_server.git
 [submodule "duelchess_mapbuilder"]
 	path = duelchess_mapbuilder
-	url = git@github.com:tdstud1o/duelchess_mapbuilder.git
+	url = ../duelchess_mapbuilder.git
 [submodule "duelchess_rules"]
 	path = duelchess_rules
-	url = git@github.com:tdstud1o/duelchess_rules.git
+	url = ../duelchess_rules.git

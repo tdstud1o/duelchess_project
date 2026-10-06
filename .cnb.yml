@@ -1,0 +1,27 @@
+# 工作室 NPC「小天」触发事件：Issue/PR 评论 @tdstud1o/npc(小天) 触发云原生构建
+# 运行环境镜像（含 lark-cli 与登录恢复钩子）源码在 tdstud1o/agent-runtime（公开仓）
+"$":
+  issue.comment@npc:
+    - name: npc-issue
+      docker:
+        image: docker.cnb.cool/tdstud1o/agent-runtime:main
+      imports:
+        - https://cnb.cool/tdstud1o/agent-secret/-/blob/main/feishu.yml
+      stages:
+        - name: restore lark login
+          script: |
+            /usr/local/bin/lark-login-restore || true
+        - name: npc go
+          type: npc:go
+  pull_request.comment@npc:
+    - name: npc-pr
+      docker:
+        image: docker.cnb.cool/tdstud1o/agent-runtime:main
+      imports:
+        - https://cnb.cool/tdstud1o/agent-secret/-/blob/main/feishu.yml
+      stages:
+        - name: restore lark login
+          script: |
+            /usr/local/bin/lark-login-restore || true
+        - name: npc go
+          type: npc:go

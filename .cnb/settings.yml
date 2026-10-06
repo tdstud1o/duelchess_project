@@ -1,6 +1,6 @@
-# 工作室 NPC 接入：小天（本体 tdstud1o/npc）+ 官方 CodeBuddy
+# 工作室 NPC 接入：小天（本体 tdstud1o/npc）
+# 注：官方 CodeBuddy（npc/CodeBuddy）导入曾导致触发无响应，暂移除（2026-10-06）
 npc:
   imports:
     list:
       - tdstud1o/npc
-      - npc/CodeBuddy

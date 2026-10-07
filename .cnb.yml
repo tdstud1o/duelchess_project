@@ -1,0 +1,32 @@
+# CNB → GitHub 单向同步（CNB 为权威源）
+#
+# 为什么需要：CNB 是主托管库，但线上部署走 GitHub
+# （duelchess 前端 = GitHub Actions → Pages；server = wrangler deploy；另有 GitHub → GitCode 镜像）。
+# 没有这条链路时「PR 合到 CNB」不会到达 GitHub，线上自然不更新。
+#
+# 需要密钥文件 tdstud1o/duelchess-secrets/github.yml（Secret 仓只能网页编辑），内容：
+#   GIT_USERNAME / GIT_ACCESS_TOKEN（GitHub classic PAT，需 repo + workflow scope）
+#   allow_slugs: "tdstud1o/*"     # * 不匹配 /，恰好覆盖本组织全部仓
+#   allow_branches: [main]
+#   allow_events: [push]
+# ⚠️ imports 在 Prepare 阶段解析：文件不在 / 不在 allow 名单里 → 整条流水线不跑。
+#
+# force: true 的理由：CNB 是权威源，非快进推送会直接失败。
+# 方向只许单向：GitHub → GitCode 的镜像仍在 GitHub Actions 侧，不要在此配反向同步。
+
+main:
+  push:
+    - name: sync-to-github
+      imports:
+        - https://cnb.cool/tdstud1o/duelchess-secrets/-/blob/main/github.yml
+      stages:
+        - name: push to github
+          image: tencentcom/git-sync
+          settings:
+            target_url: https://github.com/tdstud1o/duelchess_project.git
+            auth_type: https
+            username: $GIT_USERNAME
+            password: $GIT_ACCESS_TOKEN
+            branch: main
+            force: true
+            push_tags: false

@@ -1,0 +1,27 @@
+# 本仓是**公开仓**，子模块指向四个**私有**子仓。CNB 的规则是「公开仓库的流水线
+# 只能拉公开子模块」（见官方文档 zh/build/pipeline-syntax-reference 的
+# git.submodules 段：「公开仓库的流水线只能拉取公开仓库的子模块，无法拉取指向私有
+# 仓库的子模块」）——而代码读取用的是**触发者**的临时凭证，所以哪怕触发者本身就是
+# 子仓 owner，在公开仓里也拉不动。
+#
+# 症状：Prepare 阶段 `git submodule update --init` 失败（remote: Repository Not Found /
+# 仓库不存在）、`npc go` 被 skipped、NPC 零 token 不回话（实测 cnb-0fu-1k4b48g1m）。
+#
+# 本仓的 NPC 任务只需要 issue 上下文（读仓库里 docs/README 就够），不需要四个子仓源码，
+# 故流水线里关掉子模块拉取。子模块指针照旧维护，供协作者本地 clone 使用。
+"$":
+  issue.comment@npc:
+    - name: npc-issue
+      git:
+        submodules: false
+      stages:
+        - name: npc go
+          type: npc:go
+
+  pull_request.comment@npc:
+    - name: npc-pr
+      git:
+        submodules: false
+      stages:
+        - name: npc go
+          type: npc:go

@@ -1,6 +1,0 @@
-# 工作室 NPC 接入：小天（tdstud1o/npc）+ 官方 CodeBuddy（npc/CodeBuddy）
-npc:
-  imports:
-    list:
-      - tdstud1o/npc
-      - npc/CodeBuddy

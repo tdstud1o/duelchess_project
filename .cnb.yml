@@ -1,14 +1,30 @@
 # 本仓是**公开仓**，子模块指向四个**私有**子仓。CNB 的规则是「公开仓库的流水线
-# 只能拉公开子模块」（见官方文档 zh/build/pipeline-syntax-reference 的
-# git.submodules 段：「公开仓库的流水线只能拉取公开仓库的子模块，无法拉取指向私有
-# 仓库的子模块」）——而代码读取用的是**触发者**的临时凭证，所以哪怕触发者本身就是
-# 子仓 owner，在公开仓里也拉不动。
+# 只能拉公开子模块」（官方 zh/build/pipeline-syntax-reference 的 git.submodules 段）
+# ——而代码读取用的是**触发者**的临时凭证，所以哪怕触发者本身就是子仓 owner，
+# 在公开仓里也拉不动子仓。
 #
-# 症状：Prepare 阶段 `git submodule update --init` 失败（remote: Repository Not Found /
-# 仓库不存在）、`npc go` 被 skipped、NPC 零 token 不回话（实测 cnb-0fu-1k4b48g1m）。
+# 症状：Prepare 阶段 `git submodule update --init` 失败（remote: Repository Not Found）、
+# `npc go` 被 skipped、NPC 一个字都不回（实测 cnb-0fu-1k4b48g1m / cnb-jf0-1k4b4bmmc）。
 #
-# 本仓的 NPC 任务只需要 issue 上下文（读仓库里 docs/README 就够），不需要四个子仓源码，
-# 故流水线里关掉子模块拉取。子模块指针照旧维护，供协作者本地 clone 使用。
+# ⚠️ 但**关子模块本身救不了这次故障**，别把它当成根因修复——见下节。
+#
+# ── 为什么写在这里也没用（2026-10-07 实测结论，别改回去）──────────────
+# NPC 事件触发时，平台执行的流水线来自 **NPC 所属仓库**（tdstud1o/npc）的 `.cnb.yml`
+# 与 `.cnb/settings.yml`，**本仓（调用方/参数仓）的 NPC 配置根本不参与合并**
+# ——官方 zh/build/npc.md「配置合并机制」：系统通过 include 合并「系统默认配置」和
+# 「NPC 仓库的 .cnb.yml」，随后「执行位置：流水线跑在当前 Issue 或 PR 所属仓库下
+# （不是 NPC 所属仓库）」说的是**跑在哪儿**，不是**读谁的配置**。
+# 实测证据：本仓 `.cnb/settings.yml` 从未出现过（`get-content` 404），
+# 而 cnb-jf0-1k4b4bmmc 的 Prepare 日志里子模块照旧被拉取 → 说明本仓的
+# `git.submodules: false` 与 `npc.imports` 都是**死配置**。
+#
+# 所以：
+#   1. 本仓 `.cnb.yml` 只保留 `$` 下的 NPC 事件，作为「本仓事件声明」的可读记录；
+#      真正生效的运行时配置在 tdstud1o/npc，改运行环境请改那边。
+#   2. **子模块拉取的真实阻塞点是 tdstud1o/npc（角色主仓）的流水线**——
+#      那仓是 Private、非公开仓限制管不到它，但它同样执行 `git submodule update`；
+#      要根治必须在角色主仓侧处理（关闭子模块拉取，或让子模块在本仓变公开）。
+#      本仓这层配置留着不删：将来平台若改为「参数仓也参与合并」，它就是对的写法。
 "$":
   issue.comment@npc:
     - name: npc-issue
